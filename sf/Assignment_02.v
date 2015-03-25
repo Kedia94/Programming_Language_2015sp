@@ -3,7 +3,13 @@ Theorem mult_S_1 : forall n m : nat,
   m = S n -> 
   m * (1 + n) = m * m.
 Proof.
-  (* FILL IN HERE *) Admitted.
+intros n m.
+intros r.
+rewrite r.
+reflexivity.
+Qed.
+
+  (* FILL IN HERE *)
 (** [] *)
 
 
@@ -27,9 +33,15 @@ Fixpoint beq_nat (n m : nat) : bool :=
 Theorem zero_nbeq_plus_1 : forall n : nat,
   beq_nat 0 (n + 1) = false.
 Proof.
-  (* FILL IN HERE *) Admitted.
-(** [] *)
+intros n.
+assert (H: n+1 = S n).
+- elim n. reflexivity.
+  simpl. intros n0. intros h. rewrite h. reflexivity.
+- rewrite H.
+  unfold beq_nat. reflexivity. Qed.
 
+  (* FILL IN HERE *)
+(** [] *)
 
 
 
@@ -45,7 +57,12 @@ Theorem negation_fn_applied_twice :
   (forall (x : bool), f x = negb x) ->
   forall (b : bool), f (f b) = b.
 Proof.
-  (* FILL IN HERE *) Admitted.
+   intros a b c. rewrite b. rewrite b.
+destruct c.
+ - unfold negb. reflexivity.
+ - unfold negb. reflexivity.
+Qed.
+  (* FILL IN HERE *)
 
 
 
@@ -63,7 +80,12 @@ Theorem andb_eq_orb :
   (andb b c = orb b c) ->
   b = c.
 Proof.
-  (* FILL IN HERE *) Admitted.
+intros b c. 
+destruct b.
+ - destruct c. simpl. reflexivity.  simpl. intros. rewrite H. reflexivity.
+ - destruct c. simpl. intros. rewrite H. reflexivity. simpl. reflexivity.
+Qed.
+  (* FILL IN HERE *)
 
 
 
@@ -77,23 +99,33 @@ Proof.
 
 Theorem plus_n_O : forall n : nat,
   n = n + 0.
-Proof. 
-  (* FILL IN HERE *) Admitted.
-
+Proof.
+intro n. elim n. reflexivity. intros. symmetry in H. simpl. rewrite H. reflexivity.
+Qed.
+  (* FILL IN HERE *)
 Theorem plus_n_Sm : forall n m : nat, 
   S (n + m) = n + (S m).
-Proof. 
-  (* FILL IN HERE *) Admitted.
+Proof.
+intros. elim n. simpl. reflexivity. intros. simpl. rewrite H. reflexivity.
+Qed. 
+  (* FILL IN HERE *)
 
 Theorem plus_comm : forall n m : nat,
   n + m = m + n.
 Proof.
-  (* FILL IN HERE *) Admitted.
+intros. elim n. simpl in |-*. elim (plus_n_O). reflexivity.
+intros. simpl. rewrite H. elim m. simpl. reflexivity.
+intros. simpl. rewrite H0. reflexivity.
+Qed.  
+  (* FILL IN HERE *)
 
 Theorem plus_assoc : forall n m p : nat,
   n + (m + p) = (n + m) + p.
 Proof.
-  (* FILL IN HERE *) Admitted.
+intros. elim n. simpl. reflexivity.
+intros. simpl. rewrite H. reflexivity.
+Qed.
+  (* FILL IN HERE *)
 (** [] *)
 
 
@@ -114,8 +146,12 @@ Fixpoint double (n:nat) :=
 (** Use induction to prove this simple fact about [double]: *)
 
 Lemma double_plus : forall n, double n = n + n .
-Proof.  
-  (* FILL IN HERE *) Admitted.
+Proof.
+intros.
+ elim n. simpl. reflexivity.
+intros. simpl. rewrite H. symmetry. rewrite -> plus_comm. simpl. reflexivity. Qed.
+  
+(* FILL IN HERE *)
 (** [] *)
 
 
@@ -132,7 +168,11 @@ Proof.
 Theorem plus_swap : forall n m p : nat, 
   n + (m + p) = m + (n + p).
 Proof.
-  (* FILL IN HERE *) Admitted.
+intros.
+elim n. simpl. reflexivity.
+intros. simpl. rewrite H. elim m. simpl. reflexivity. intros. simpl. rewrite H0. reflexivity. 
+Qed.
+  (* FILL IN HERE *)
 
 
 
@@ -146,12 +186,21 @@ Proof.
 Theorem mult_plus_distr_r : forall n m p : nat,
   (n + m) * p = (n * p) + (m * p).
 Proof.
-  (* FILL IN HERE *) Admitted.
+intros.
+assert (mult_n_0: n*0=0). { induction n. reflexivity. simpl. rewrite IHn. simpl. reflexivity. }
+elim m. simpl. rewrite plus_comm. symmetry. rewrite plus_comm. reflexivity.
+intros. rewrite plus_comm. simpl.
+rewrite plus_comm in H. rewrite H. rewrite plus_assoc. rewrite plus_assoc. rewrite (plus_comm p (n*p)). reflexivity.
+Qed.
+(* FILL IN HERE *)
 
 Theorem mult_assoc : forall n m p : nat,
   n * (m * p) = (n * m) * p.
 Proof.
-  (* FILL IN HERE *) Admitted.
+intros. elim n. simpl. reflexivity.
+intros. simpl. rewrite H. symmetry. apply (mult_plus_distr_r m (n0*m) p).
+Qed.
+  (* FILL IN HERE *)
 (** [] *)
 
 
@@ -191,7 +240,9 @@ Definition swap_pair (p : natprod) : natprod :=
 Theorem snd_fst_is_swap : forall (p : natprod),
   (snd p, fst p) = swap_pair p.
 Proof.
-  (* FILL IN HERE *) Admitted.
+intros. unfold swap_pair. destruct p as (a, b). simpl. reflexivity.
+Qed.  
+  (* FILL IN HERE *)
 (** [] *)
 
 
@@ -204,7 +255,10 @@ Proof.
 Theorem fst_swap_is_snd : forall (p : natprod),
   fst (swap_pair p) = snd p.
 Proof.
-  (* FILL IN HERE *) Admitted.
+intros.
+destruct p as (a, b). simpl. reflexivity.
+Qed.
+  (* FILL IN HERE *)
 (** [] *)
 
 

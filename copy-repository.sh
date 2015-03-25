@@ -5,13 +5,13 @@
 ## Configurations ##
 
 # You have to write down your own GitHub user id.
-if [ -z kedia94 ] ; then
+if [ -z $USERID ] ; then
   echo "You have to specify USERID."
   exit 1
 fi
-
+ 
 # You have to write down the directory you want to place the repository.
-if [ -z pl2015 ] ; then
+if [ -z $WORKSPACE ] ; then
   echo "You have to specify WORKSPACE."
   exit 1
 fi
@@ -25,8 +25,8 @@ fi
 git clone https://github.com/snu-sf/pl2015.git
 
 # Copy.
-cd pl2015
+cd $WORKSPACE
 git remote rm origin
-git remote add origin https://github.com/kedia94/pl2015.git
+git remote add origin https://github.com/$USERID/pl2015.git
 git remote add upstream https://github.com/snu-sf/pl2015.git
 git push --set-upstream origin master
