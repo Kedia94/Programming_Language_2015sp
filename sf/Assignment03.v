@@ -226,7 +226,7 @@ Qed.
 
 
 (** **** Problem #4 (20 pts) : 2 stars (beq_natlist) *)
-Fixpoint beq_nat (n m : nat) : bool :=
+(*Fixpoint beq_nat (n m : nat) : bool :=
   match n with
   | O => match m with
          | O => true
@@ -236,7 +236,7 @@ Fixpoint beq_nat (n m : nat) : bool :=
             | O => false
             | S m' => beq_nat n' m'
             end
-  end.
+  end.*)
 (** Fill in the definition of [beq_natlist], which compares
     lists of numbers for equality.  Prove that [beq_natlist l l]
     yields [true] for every list [l]. 
