@@ -15,8 +15,11 @@ Require Export Assignment06_06.
     does not stutter.) *)
 
 Inductive nostutter:  list nat -> Prop :=
+no_nil: nostutter []
+  | no_one: forall (a: nat), nostutter [a]
+  | no_else: forall (a b: nat) (l: list nat), nostutter (b::l) -> a<>b -> nostutter (a::(b::l)).
  (* FILL IN HERE *)
-.
+
 
 (** Make sure each of these tests succeeds, but you are free
     to change the proof if the given one doesn't work for you.
@@ -30,26 +33,30 @@ Inductive nostutter:  list nat -> Prop :=
     you prefer you can also prove each example with more basic
     tactics.  *)
 
-Example test_nostutter_1:      nostutter [3;1;4;1;5;6].
-(* FILL IN HERE *) Admitted.
+Example test_nostutter_1:      nostutter [3;1;4;1;5;6]. 
+Proof. repeat constructor; apply beq_nat_false; auto. Qed.
+(* FILL IN HERE *)
 (* 
   Proof. repeat constructor; apply beq_nat_false; auto. Qed.
 *)
 
 Example test_nostutter_2:  nostutter [].
-(* FILL IN HERE *) Admitted.
+Proof. apply no_nil. Qed.
+(* FILL IN HERE *)
 (* 
   Proof. repeat constructor; apply beq_nat_false; auto. Qed.
 *)
 
 Example test_nostutter_3:  nostutter [5].
-(* FILL IN HERE *) Admitted.
+Proof. apply no_one. Qed.
+(* FILL IN HERE *)
 (* 
   Proof. repeat constructor; apply beq_nat_false; auto. Qed.
 *)
 
 Example test_nostutter_4:      not (nostutter [3;1;1;4]).
-(* FILL IN HERE *) Admitted.
+Proof. intro. inversion H. inversion H2. unfold not in H9. apply H9. reflexivity. Qed.
+(* FILL IN HERE *)
 (* 
   Proof. intro.
   repeat match goal with 
