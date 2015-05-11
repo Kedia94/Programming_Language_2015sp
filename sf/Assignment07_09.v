@@ -7,7 +7,8 @@ Theorem update_same : forall n1 x1 x2 (st : state),
   st x1 = n1 ->
   (update st x1 n1) x2 = st x2.
 Proof.
-  (* FILL IN HERE *) admit.
+intros. unfold update. destruct (eq_id_dec x1 x2). rewrite <- H. rewrite e. reflexivity. reflexivity.
+  (* FILL IN HERE *)
 Qed.
 (** [] *)
 
