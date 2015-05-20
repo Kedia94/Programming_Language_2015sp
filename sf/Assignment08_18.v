@@ -5,7 +5,9 @@ Require Export Assignment08_17.
 Lemma optimize_0plus_com_sound:
   ctrans_sound optimize_0plus_com.
 Proof.
-  exact FILL_IN_HERE.
+unfold ctrans_sound. intros. com_cases (induction c) Case; simpl.
+apply refl_cequiv. apply CAss_congruence. apply optimize_0plus_aexp_sound. apply CSeq_congruence. apply IHc1. apply IHc2.
+apply CIf_congruence. apply optimize_0plus_bexp_sound. apply IHc1. apply IHc2. apply CWhile_congruence. apply optimize_0plus_bexp_sound. apply IHc.
 Qed.
 
 (*-- Check --*)

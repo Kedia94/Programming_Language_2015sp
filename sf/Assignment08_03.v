@@ -12,7 +12,8 @@ Proof.
      [loopdef] terminates.  Most of the cases are immediately
      contradictory (and so can be solved in one step with
      [inversion]). *)
-  exact FILL_IN_HERE.
+  induction contra. inversion Heqloopdef. inversion Heqloopdef. inversion Heqloopdef. inversion Heqloopdef. inversion Heqloopdef. inversion Heqloopdef. subst. inversion H. inversion Heqloopdef. subst. apply IHcontra2. reflexivity.
+
 Qed.
 
 (*-- Check --*)

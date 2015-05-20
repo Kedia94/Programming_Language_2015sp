@@ -9,7 +9,10 @@ Theorem IFB_false: forall b c1 c2,
     (IFB b THEN c1 ELSE c2 FI) 
     c2.
 Proof.
-  exact FILL_IN_HERE.
+intros. unfold cequiv. intros. split.
+{ intros. inversion H0. subst. inversion H0. subst. unfold bequiv in H. rewrite H in H6. inversion H6.
+  subst. rewrite H in H6. inversion H6. subst. apply H7. }
+{ intros. apply E_IfFalse. apply H. apply H0. }
 Qed.
 
 (*-- Check --*)
