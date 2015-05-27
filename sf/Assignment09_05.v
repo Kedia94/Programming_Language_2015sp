@@ -13,7 +13,13 @@ Theorem if_minus_plus :
   FI
   {{fun st => st Y = st X + st Z}}. 
 Proof.
-  exact FILL_IN_HERE.
+unfold hoare_triple. intros.
+inversion H; subst. unfold beval in H6. simpl in H6.
+inversion H7; subst. unfold update; simpl.
+generalize dependent (st X) . generalize dependent (st Y).
+induction n. intros. destruct n. reflexivity. inversion H6.
+destruct   n0. intros; omega. simpl. intros. apply f_equal. apply IHn. apply H6.
+unfold beval in H6; simpl in H6. inversion H7; subst. unfold update; simpl. reflexivity.
 Qed.
 
 (*-- Check --*)

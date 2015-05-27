@@ -25,7 +25,14 @@ Theorem slow_assignment : forall m,
     END
     {{ fun st => st Y = m }}.
 Proof.
-  exact FILL_IN_HERE.
+intros. apply hoare_seq with (fun st => st X + st Y = m). eapply hoare_consequence_post. 
+apply hoare_while. eapply hoare_seq. apply hoare_asgn. eapply hoare_consequence_pre. apply hoare_asgn.
+
+unfold assert_implies. intros. inversion H. simpl in *. unfold assn_sub. unfold update. simpl.
+destruct (st X). inversion H1. rewrite <- H0. omega.
+unfold assn_sub. unfold assert_implies. intros. simpl in *. inversion H.
+apply negb_false in H1. symmetry in H1. apply beq_nat_eq in H1. rewrite H1 in H0. apply H0.
+unfold hoare_triple. intros. inversion H; subst. unfold update. simpl. omega.
 Qed.
 
 (*-- Check --*)
