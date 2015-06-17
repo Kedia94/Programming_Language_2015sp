@@ -7,7 +7,9 @@ Corollary soundness : forall t t' T,
   t ==>* t' ->
   ~(stuck t').
 Proof.
-  exact FILL_IN_HERE.
+intros. induction H0; intros [R S].
+destruct (progress x T H); auto.
+apply IHmulti. apply (preservation x y T H H0). unfold stuck. split; auto.
 Qed.
 
 (*-- Check --*)
