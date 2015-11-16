@@ -2,9 +2,9 @@
 
 - Instructor: Prof. [Gil Hur](http://sf.snu.ac.kr/gil.hur)
 - TA: [Jeehoon Kang](http://sf.snu.ac.kr/jeehoon.kang)
-    + Email address: [pl2015@sf.snu.ac.kr](mailto:pl2015@sf.snu.ac.kr).
+    + Email address: -.
         * Send emails for personal matters only. Use the issue tracker.
-        * DO NOT send emails to jee...@sf.snu.ac.kr.
+        * DO NOT send emails to -.
         * In the case you send TA an email, specify your name and your student ID.
     + Office Hour: At bldg 301 rm 554-1. Please email me to make an appointment.
 
@@ -14,7 +14,7 @@
     + TA will give you office hour 2015/03/16-2015/03/18. See [here](https://github.com/snu-sf/pl2015/issues/15).
 - Check the [GitHub repository status](https://github.com/snu-sf/pl2015/issues/14).
 - Now you can use Coq 8.4pl5 in martini.snucse.org and midori.snucse.org! Run `coqide`. Thanks to [@kcm1700](https://github.com/kcm1700)!
-- Check if your student IDs are correct [here](https://docs.google.com/spreadsheets/d/1LzOLx22lF3N31D9RDS20Ec8ub_Rq6IA3utD8CNMk9CQ/edit#gid=0).
+- Check if your student IDs are correct [here](README.md).
 - We will have an (optional) lab session on Git at 2015/03/10 (Wed) 20:30-21:30. Please come to Software Lab, 3rd floor, bldg 302.
 - We will have a lab session at 2015/03/04 (Thu). Please come to Software Lab, 3rd floor, bldg 302.
 - We will change your seats at 2015/05/19 (Tue).
@@ -35,10 +35,10 @@
 | 2015/04/02 14:00 	| [Assignment 03](sf/Assignment03.v) ([status](https://github.com/snu-sf/pl2015/issues/42)) 	|       	|
 | 2015/03/26 14:00 	| [Assignment 02](sf/Assignment_02.v) ([status](https://github.com/snu-sf/pl2015/issues/30)) 	|       	|
 | 2015/03/19 14:00 	| [Assignment 01](sf/Assignment01.v) ([status](https://github.com/snu-sf/pl2015/issues/17)) 	|       	|
-| 2015/03/12 	| Check if your student IDs are correct [here](https://docs.google.com/spreadsheets/d/1LzOLx22lF3N31D9RDS20Ec8ub_Rq6IA3utD8CNMk9CQ/edit#gid=0).	|       	|
+| 2015/03/12 	| Check if your student IDs are correct [here](README.md).	|       	|
 | 2015/03/09 	| Be ready to do homework and submit it.	|       	|
 | 2015/03/09 	| Read articles on [GitHub](https://help.github.com/). Especially, read Bootcamp, Setup, Using Git, User Accounts, and SSH sections.	|       	|
-| 2015/03/09 	| Register at [GitHub](https://github.com), and give me your information [here](http://goo.gl/forms/YUjIxNo3LD).	|       	|
+| 2015/03/09 	| Register at [GitHub](https://github.com), and give me your information [here](README.md).	|       	|
 
 ## Must Read ##
 
@@ -52,12 +52,12 @@
     + You will solve Coq problems at the lab during the exam.
 - Attendance: 10%
     + -2% per absence. We will take a photo around 5:30 from 2015/03/09. *IMPORTANT: 6 absences makes an F*.
-    + You are assigned a seat that you will use in this course. See: https://docs.google.com/spreadsheets/d/1LzOLx22lF3N31D9RDS20Ec8ub_Rq6IA3utD8CNMk9CQ/edit#gid=0
+    + You are assigned a seat that you will use in this course. See: -
 
 ### Questions ###
 
 - In class: if you speak Korean, ask in Korean. Otherwise, ask in English.
-- In the [GitHub repository issue tracker](https://github.com/snu-sf/pl2015/issues): ask in English.
+- In the [GitHub repository issue tracker](README.md): ask in English.
 - Send email for *personal matters only*.
 - If you want to post a piece of source code, please DO NOT upload an image of it. Because it is hard to reconstruct texts from images.
     + Instead, use GitHub Markdown's ["fenced code blocks" feature](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks).
